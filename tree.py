@@ -4,12 +4,22 @@ class Node:
         self.left = None
         self.right = None
 
-def buildTree(self):
-    data = input("Enter the data for the node: ")
-    root = Node(data)
-    if data == "mahi":
-        return None
-    root.left = self.buildTree()
-    root.right = self.buildTree()
-    return root
+class BinaryTree:
+    def __init__(self):
+        self.root = None
+    def buildTree(self):
+        data = int(input("Enter the data for the node: "))
+        if data == "Mahi":
+            return None
+        
+        node = Node(data) 
 
+        print("Enter the left child of", data)
+        node.left = self.buildTree()
+
+        print("Enter the right child of", data) 
+        node.right = self.buildTree()  
+        return node
+
+MyBinaryTree = BinaryTree()
+Root = MyBinaryTree.buildTree()
