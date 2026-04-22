@@ -8,9 +8,9 @@ class BinaryTree:
     def __init__(self):
         self.root = None
     def buildTree(self):
+
+        
         data = int(input("Enter the data for the node: "))
-        if data == "Mahi":
-            return None
         
         node = Node(data) 
 
