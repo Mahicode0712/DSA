@@ -43,10 +43,25 @@ def insert_at_lastposition(self,my_data):
         curNode.prev = curNode
 
 #insert at any position
-def insert_at_anyposition(self,my_data,position):
-    curNode = Node(my_data)
-    if self.head == None:
-        curNode = self.head
-    curNode.next = curNode
-    curNode.prev = curNode
-        
+def insert_at_anyposition(self, my_data, position):
+    new_node = Node(my_data)
+    if self.head is None:
+        self.head = new_node
+        return
+    if position <= 0:
+        new_node.next = self.head
+        self.head.prev = new_node
+        self.head = new_node
+        return
+    current = self.head
+    for _ in range(position - 1):
+        if current.next is None:
+            break
+        current = current.next
+    new_node.next = current.next
+    if current.next:
+        current.next.prev = new_node
+    current.next = new_node
+    new_node.prev = current  
+
+    
