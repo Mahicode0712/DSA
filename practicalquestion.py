@@ -129,3 +129,96 @@ def binary_search(arr, target):
 
 print(linear_search([4, 2, 7, 1], 7))        # 2
 print(binary_search([1, 3, 5, 7, 9], 7))     # 3
+
+
+# Tree Traversal: Inorder, Preorder, Postorder
+class TreeNode:
+    def __init__(self, val):
+        self.val = val
+        self.left = self.right = None
+
+def inorder(root):    # Left → Root → Right
+    if root:
+        inorder(root.left)
+        print(root.val, end=" ")
+        inorder(root.right)
+
+def preorder(root):   # Root → Left → Right
+    if root:
+        print(root.val, end=" ")
+        preorder(root.left)
+        preorder(root.right)
+
+def postorder(root):  # Left → Right → Root
+    if root:
+        postorder(root.left)
+        postorder(root.right)
+        print(root.val, end=" ")
+
+#       1
+#      / \
+#     2   3
+root = TreeNode(1)
+root.left = TreeNode(2)
+root.right = TreeNode(3)
+
+inorder(root)    # 2 1 3
+preorder(root)   # 1 2 3
+postorder(root)  # 2 3 1
+
+
+# Graph Traversal: BFS vs DFS
+from collections import deque
+
+graph = {
+    1: [2, 3],
+    2: [4, 5],
+    3: [],
+    4: [],
+    5: []
+}
+
+# BFS - Level by level (uses Queue)
+def bfs(start):
+    visited, queue = set(), deque([start])
+    visited.add(start)
+    while queue:
+        node = queue.popleft()
+        print(node, end=" ")
+        for neighbor in graph[node]:
+            if neighbor not in visited:
+                visited.add(neighbor)
+                queue.append(neighbor)
+
+# DFS - Go deep first (uses Stack/Recursion)
+def dfs(node, visited=set()):
+    if node not in visited:
+        print(node, end=" ")
+        visited.add(node)
+        for neighbor in graph[node]:
+            dfs(neighbor, visited)
+
+bfs(1)  # 1 2 3 4 5
+dfs(1)  # 1 2 4 5 3
+
+# Given a number, return the sum of its digits.
+def sum_of_digits(n):
+    return sum(int(d) for d in str(abs(n)))
+
+print(sum_of_digits(1234))  # 10
+print(sum_of_digits(456))   # 15
+
+
+# Given an array of integers, return the second largest number. If there is no second largest, return None.
+def second_max(arr):
+    first = second = float('-inf')
+    for num in arr:
+        if num > first:
+            second = first
+            first = num
+        elif num > second and num != first:
+            second = num
+    return second if second != float('-inf') else None
+
+print(second_max([3, 1, 4, 1, 5, 9, 2, 6]))  # 6
+print(second_max([10, 10, 10]))               # None (no distinct second max)
