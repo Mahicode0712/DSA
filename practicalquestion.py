@@ -222,3 +222,4 @@ def second_max(arr):
 
 print(second_max([3, 1, 4, 1, 5, 9, 2, 6]))  # 6
 print(second_max([10, 10, 10]))               # None (no distinct second max)
+
