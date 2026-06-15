@@ -65,7 +65,9 @@ class Queue:
         return self.queue[0] if self.queue else "Empty"
 
 s = Stack()
-s.push(1); s.push(2); s.push(3)
+s.push(1); 
+s.push(2); 
+s.push(3)
 print(s.pop())   # 3
 
 q = Queue()

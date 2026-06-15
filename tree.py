@@ -18,7 +18,7 @@ class BinaryTree:
         print("Left child ka naam btaye, aapke papa : ", data)
         node.left = self.buildTree()
 
-        print("Left child ka naam btaye, aapke papa : ", data)
+        print("Right child ka naam btaye, aapke papa : ", data)
         node.right = self.buildTree()
 
         return node
@@ -27,9 +27,9 @@ class BinaryTree:
         if myRoot == None:          # Base condition
             return 
         
-        self.postOrder(myRoot.left)  # Visiting left child (L)
+        self.inorder(myRoot.left)  # Visiting left child (L)
         print(myRoot.data, end=" ") # Printing current Node (N)
-        self.postOrder(myRoot.right) # Visiting right child (R)
+        self.inorder(myRoot.right) # Visiting right child (R)
 
     def levelOrderTraversal(self, myRoot):
         if myRoot == None:

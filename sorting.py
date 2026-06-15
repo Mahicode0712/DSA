@@ -9,7 +9,8 @@ def selectionsort(arr):
             smallInx= j
       arr[i],arr[smallInx]= arr[smallInx],arr[i]
    return arr
-print(selectionsort(arr))
+print("Before selection sort:", arr)
+print("After selection sort:", selectionsort(arr))
 
 #.     bubble sorting 
 def bubblesort(arr):
@@ -22,16 +23,20 @@ def bubblesort(arr):
 print("Before bubble sort:", arr)
 print("After bubble sort:", bubblesort(arr))
 
+
 #.     insertion sorting
 def insertionsort(arr):
     n=len(arr)
     for i in range(1,n):
-        min=arr[i]
+        key=arr[i]
         j=i-1
-        while j>=0 and arr[j]>min:
+        while j>=0 and arr[j]>key:
             arr[j+1]=arr[j]
             j-=1
-            arr[j]=min
+            arr[j]=key
+print("Before insertion sort:", arr)
+print("After insertion sort:", insertionsort(arr))
+
 
 #.      merge sorting.  (divide > sort > merge)
 def merge():
@@ -43,6 +48,8 @@ def merge():
     mergesort(arr,mid+1,e)
     merge(arr,s,mid,mid+1,e)
     return arr
- print(mergesort(arr))
+ print("Before merge sort:", arr)
+ print("After merge sort:", mergesort(arr,0,len(arr)-1))  
+
  
 

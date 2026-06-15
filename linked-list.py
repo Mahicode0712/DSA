@@ -61,4 +61,35 @@ def insert_at_anyposition(self,my_data,position):
     curNode.next = curNode
     curNode.prev = curNode  
 
-    
+
+
+# singly Linked List Implementation in Python
+class Node:
+    def __init__(self,my_data):
+        self.data = my_data
+        self.next = None
+
+class SinglyLinkedList:
+    def __init__(self):
+        self.head = None
+
+    def insert_at_firstposition(self,my_data):
+        new_node = Node(my_data)
+        if self.head == None:
+            self.head = new_node
+        else:
+            new_node.next = self.head
+            self.head = new_node
+
+    def traversal(self):
+     curNode = self.head
+     while curNode != None:
+      print(curNode.data , end="->")
+      curNode = curNode.next
+
+
+sll = SinglyLinkedList()
+sll.insert_at_firstposition("Shayam")
+sll.insert_at_firstposition("Vikram")
+sll.insert_at_firstposition("Karan")
+sll.traversal()
